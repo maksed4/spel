@@ -1,4 +1,10 @@
-var x = Math.floor(Math.random() * 3) + 1;
 
+const arr = ['påse', 'sten', 'sax'];
+function getRandomWord(words) {
 
-console.log(x)
+    const randomWord = Math.floor(Math.random() * arr.length);
+    const finalResult = words[randomWord];
+    console.log(finalResult)
+}
+
+getRandomWord(arr)

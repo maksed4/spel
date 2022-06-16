@@ -1,9 +1,11 @@
-import { StyleSheet, Text } from "react-native"
+import { StyleSheet, Text, View } from "react-native"
 
 
 const Header = () => {
     return (
-        <Text style={styles.title}>Sten Sax Påse Spel</Text>
+        <View style={styles.container}>
+            <Text style={styles.title}>Sten Sax Påse Spel</Text>
+        </View>
     )
 }
 
@@ -13,6 +15,9 @@ const styles = StyleSheet.create({
         marginTop: 30,
         fontSize: 30,
         marginBottom: 50
+    },
+    container: {
+        alignItems: "center"
     }
 })
 

@@ -1,10 +1,9 @@
 import { useState } from "react"
-import { Button, StyleSheet, TextInput, View } from "react-native"
+import { Button, DeviceEventEmitter, StyleSheet, TextInput, View } from "react-native"
 
 const Input = ({ setChoice }) => {
 
     const [textinput, setTextInput] = useState("");
-
 
 
     const handleTextInput = (text) => {
@@ -13,9 +12,7 @@ const Input = ({ setChoice }) => {
 
     const handleAdd = () => {
         setChoice(prev => prev.concat(textinput))
-        if (textinput == "maxim") {
-            console.log("hello")
-        }
+        DeviceEventEmitter.emit('ComputerChoice')
     }
 
     return (
