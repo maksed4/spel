@@ -4,36 +4,23 @@ import { useState } from "react"
 import Header from './components/header';
 import Input from './components/Input';
 import ChoiceList from './components/ChoiceList';
+import Screen from './Screen/Screen';
+import StartScreen from './Screen/StartScreen';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 export default function App() {
 
-  const [choice, setChoice] = useState([]);
+  const stackNavigation = createNativeStackNavigator();
 
 
   return (
-    <View style={styles.container}>
-      <ImageBackground
-        source={require("./assets/uD9js.png")}
-        resizeMode='cover'
-        style={styles.image}>
-        <StatusBar style="auto" />
-        <Header />
-        <Input setChoice={setChoice} />
-        <ChoiceList choice={choice} />
-      </ImageBackground>
-    </View>
+    <NavigationContainer>
+      <stackNavigation.Navigator>
+        <stackNavigation.Screen options={{ headerShown: false }} name='startScreen' component={StartScreen} />
+        <stackNavigation.Screen options={{ headerShown: false }} name='main' component={Screen} />
+      </stackNavigation.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-  },
-  image: {
-    width: Dimensions.get("window").width,
-    height: Dimensions.get("window").height
-  }
-
-});
